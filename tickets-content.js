@@ -21,6 +21,13 @@
     return;
   }
 
+  // Skip lottery applications page - signup complete, don't do anything
+  if (currentUrl.includes('lotteryapplications') || currentUrl.includes('lottery-applications') ||
+      currentUrl.includes('/account/lotteryapplications')) {
+    console.log('[FIFA Auto Flow] Lottery applications page - signup complete, stopping automation');
+    return;
+  }
+
   console.log('[FIFA Auto Flow] FIFA Tickets page detected:', window.location.href);
 
   let actionTaken = false;
@@ -28,12 +35,12 @@
   let cardTriggered = false;
   let completeAccountTriggered = false;
 
-  // Simulate Alt+X keypress to trigger TM_Autofill
-  function triggerAltX() {
-    console.log('[FIFA Auto Flow] Triggering Alt+X...');
+  // Simulate Alt+A keypress to trigger TM_Autofill
+  function triggerAltA() {
+    console.log('[FIFA Auto Flow] Triggering Alt+A...');
     const event = new KeyboardEvent('keydown', {
-      key: 'x',
-      code: 'KeyX',
+      key: 'a',
+      code: 'KeyA',
       altKey: true,
       bubbles: true,
       cancelable: true
@@ -332,7 +339,7 @@
 
     // Wait for page to load, then trigger Alt+X to fill via TM_Autofill
     setTimeout(() => {
-      triggerAltX();
+      triggerAltA();
 
       // After Alt+X fills the form, check checkboxes and click Save
       setTimeout(() => {
