@@ -113,9 +113,9 @@
     checkPage();
   }
 
-  // Simulate Alt+X keypress to trigger TM_Autofill
-  function triggerAltX() {
-    console.log('[FIFA Auto Flow] Triggering Alt+X...');
+  // Simulate Alt+A keypress to trigger TM_Autofill
+  function triggerAltA() {
+    console.log('[FIFA Auto Flow] Triggering Alt+A...');
     updateStatus('Triggering autofill...');
     const event = new KeyboardEvent('keydown', {
       key: 'a',
@@ -266,7 +266,7 @@
     console.log('[FIFA Auto Flow] Sign In form detected - triggering Alt+A...');
     updateStatus('Filling sign in form...');
     setTimeout(() => {
-      triggerAltX();
+      triggerAltA();
 
       // After Alt+A fills email/password, click Sign In button
       setTimeout(() => {
@@ -297,7 +297,7 @@
 
     // Wait for page to fully load, then trigger Alt+A
     setTimeout(() => {
-      triggerAltX();
+      triggerAltA();
 
       // After Alt+A fills the form, wait and click Continue
       setTimeout(() => {
@@ -315,7 +315,7 @@
     console.log('[FIFA Auto Flow] Password page - triggering Alt+A...');
     updateStatus('Filling password...');
     setTimeout(() => {
-      triggerAltX();
+      triggerAltA();
 
       // After Alt+A fills password, click Continue
       setTimeout(() => {
@@ -349,7 +349,7 @@
       setTimeout(() => {
         console.log('[FIFA Auto Flow] Triggering Alt+A to fill OTP code...');
         updateStatus('Filling OTP...');
-        triggerAltX();
+        triggerAltA();
 
         // After Alt+A fills the code, click Verify button
         setTimeout(() => {
