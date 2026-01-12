@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "FIFA Auto Flow",
-  "version": "2.0.0",
-  "description": "FIFA signup automation with START button overlay - no auto navigation",
+  "version": "3.0.0",
+  "description": "FIFA signup automation with 2captcha solver",
   "permissions": [
     "activeTab",
     "tabs",
@@ -15,7 +15,8 @@
     "*://auth.fifa.com/*",
     "*://*.fifa.com/*",
     "*://fifa-fwc26-us.tickets.fifa.com/*",
-    "*://access.tickets.fifa.com/*"
+    "*://access.tickets.fifa.com/*",
+    "*://2captcha.com/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -28,7 +29,7 @@
     },
     {
       "matches": ["*://auth.fifa.com/*"],
-      "js": ["auth-content.js"],
+      "js": ["captcha-solver.js", "auth-content.js"],
       "run_at": "document_end"
     },
     {
@@ -45,7 +46,7 @@
         "*://*.braintree.com/*",
         "*://*.checkout.com/*"
       ],
-      "js": ["tickets-content.js"],
+      "js": ["captcha-solver.js", "tickets-content.js"],
       "run_at": "document_end",
       "all_frames": false
     }
